@@ -195,11 +195,11 @@
 
 ```
 
-可以看到，这次我们调用了 *- (void)registerClass:(nullable Class)cellClass forCellReuseIdentifier:(NSString \*)identifier* 方法，把tableView和cell先配置好，并且在cellForRowAtIndexPath方法里面，去掉了if (!cell) {...}的处理，代码看起来更加简洁。
+可以看到，这次我们调用了 `- (void)registerClass:(nullable Class)cellClass forCellReuseIdentifier:(NSString *)identifier` 方法，把tableView和cell先配置好，并且在`cellForRowAtIndexPath`方法里面，去掉了`if (!cell) {...}`的处理，代码看起来更加简洁。
 
-为什么不再需要判断cell是否为空？因为通过registerClass方法注册了cell之后，*dequeueReusableCellWithIdentifier:(NSString \*)identifier forIndexPath:(NSIndexPath \*)indexPath* 方法会确保有一个**可用**的cell返回。
+为什么不再需要判断cell是否为空？因为通过`registerClass`方法注册了cell之后，`dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath` 方法会确保有一个**可用**的cell返回。
 
-当然，我们可以把类型判断的这段代码提取出来，让cellForRowAtIndexPath方法看起来更加简洁
+当然，我们可以把类型判断的这段代码提取出来，让`cellForRowAtIndexPath`方法看起来更加简洁
 
 ```
 @interface Person : NSObject
@@ -228,7 +228,7 @@
 @end
 
 ```
-现在cellForRowAtIndexPath方法看起来就像下面这样，明显简洁多了
+现在`cellForRowAtIndexPath`方法看起来就像下面这样，明显简洁多了
 
 ```
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -250,5 +250,5 @@
 
 **结论：**
 
-使用 *- (void)registerClass:(nullable Class)cellClass forCellReuseIdentifier:(NSString \*)identifier* 和 *- (UITableViewCell \*)dequeueReusableCellWithIdentifier:(NSString \*)identifier forIndexPath:(NSIndexPath \*)indexPath* 可以让UITableView处理多种类型的cell更加灵活和轻松。
+使用 `- (void)registerClass:(nullable Class)cellClass forCellReuseIdentifier:(NSString *)identifier` 和 `- (UITableViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath` 可以让UITableView处理多种类型的cell更加灵活和轻松。
 
