@@ -1,6 +1,6 @@
 #UITableView支持不同类型的Cell#
 
-在某些业务场景下，同一个UITableView需要支持多种UITableViewCell。考虑一下即时通信的聊天对话列表，不同的消息类型对于不同的UITableViewCell，同一个tableview往往需要支持多达10种以上的cell类型，例如文本、图片、位置、红包等等。一般情况下，UITableViewCell往往会和业务数据模型绑定，来展示数据。根据不同的业务数据，对应不同的cell。本文将探讨如何有效的管理和加载多种类型的cell。
+在某些业务场景下，同一个UITableView需要支持多种UITableViewCell。考虑一下即时通信的聊天对话列表，不同的消息类型对应于不同的UITableViewCell，同一个tableview往往需要支持多达10种以上的cell类型，例如文本、图片、位置、红包等等。一般情况下，UITableViewCell往往会和业务数据模型绑定，来展示数据。根据不同的业务数据，对应不同的cell。本文将探讨如何有效的管理和加载多种类型的cell。
 
 为了方便讨论，假设我们要实现一个员工管理系统。一个员工包含名字和头像。如果员工只有名字，则只展示名字，如果只有头像，则只展示头像，如果既有名字，又有头像，则需要既展示头像又展示名字。
 
@@ -228,7 +228,7 @@
 @end
 
 ```
-现在cellForRowAtIndexPath方法看起来就像下面这样，明显简介多了
+现在cellForRowAtIndexPath方法看起来就像下面这样，明显简洁多了
 
 ```
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
